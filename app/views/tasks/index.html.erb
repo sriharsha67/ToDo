@@ -1,2 +1,14 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<section id= "tasks">
+  <h1>Tasks</h1>
+
+  <%= simple_form_for @new_task, html: { class: 'form-inline' } do |f| %>
+    <%= f.input :title, label:false, placeholder: "What do you want to do?" %>
+    <%= f.submit "Create Task", class: "btn btn-primary" %>
+  <% end %>
+
+  <ul>
+    <% Task.all.each do |task| %>
+      <li><%= task.title %></li>
+    <% end %>
+  </ul>
+</section>
